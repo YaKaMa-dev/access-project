@@ -1,12 +1,14 @@
 @extends('welcome')
 @section('pageTitle', 'Projets / Accesses')
 @section('content')
+
 @if (session('succes'))
-<div class="alert alert-success">
-    {{ session('succes') }}
+<div class="bg-green-500 text-green-900 p-6">
+   <ul class="ml-2">{{ session('succes') }}</ul>
 </div>
-@endif  
-<div class="flex flex-col ">
+@endif
+  
+<div class="flex flex-col overflow-auto  max-h-96">
     <div class="text-center">
         
     </div>
@@ -54,4 +56,7 @@
         </div>
       </div>
     </div>
+    <div class=" mx-20 mt-4 ">
+      {{ $accesses->links() }}
+  </div>
 @endsection

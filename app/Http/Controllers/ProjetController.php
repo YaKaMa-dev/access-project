@@ -17,8 +17,8 @@ class ProjetController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   if(Auth::user()->isAdmin) $projets = Projet::all();
-        else $projets = Projet::where('user_id',Auth::user()->id)->get();
+    {   if(Auth::user()->isAdmin) $projets = Projet::query()->paginate(3);
+        else $projets = Projet::where('user_id',Auth::user()->id)->paginate(3);
 
         return view('projets.index',[
             'projets'=>$projets,
@@ -66,7 +66,7 @@ class ProjetController extends Controller
     public function show($id)
     {
         $projet = Projet::findOrFail($id);
-        $accesses = Access::where('projet_id',$projet->id)->get();
+        $accesses = Access::where('projet_id',$projet->id)->paginate(3);
         return view('projets.show',[
             'projet' => $projet,
             'accesses' => $accesses

@@ -3,7 +3,7 @@
 @section('content')
 @if ($errors->any())
     <div class=" bg-red-500 text-red-900 p-6">
-        <ul class="ml-72">
+        <ul class="ml-2">
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach

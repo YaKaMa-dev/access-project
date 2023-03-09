@@ -42,7 +42,7 @@
 
   // Copy the selected text to the clipboard
   document.execCommand("copy");
-  button_copy.classList.add("bg-green-600");
+  button_copy.style.background = "#009E60"; 
   button_copy.value = "Copied!";
     }
   </script>

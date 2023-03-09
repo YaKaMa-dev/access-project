@@ -4,16 +4,16 @@
 @section('content')
 @if (session('succes'))
 <div class="bg-green-500 text-green-900 p-6">
-   <ul class="ml-72">{{ session('succes') }}</ul>
+   <ul class="ml-2">{{ session('succes') }}</ul>
 </div>
 @endif
-<div class="flex flex-col ">
+<div class="flex flex-col overflow-auto  max-h-96 ">
     <a href="{{route('projets.create')}}" class="hover:bg-orange-800 p-2 bg-orange-600  mt-6 text-white w-16 font-bold">+ <span>Add</span></a>
-      <div class="overflow-x-auto">
+      <div class="overflow-x-auto  mt-5">
         <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
           <div class="overflow-hidden">
-            <table class="min-w-full text-center">
-              <thead class="border-b bg-gray-800">
+            <table class="min-w-full text-center ">
+              <thead class="border-b bg-gray-800 ">
                 <tr>
                   <th scope="col" class="text-sm font-medium text-white px-6 py-4">
                     #
@@ -26,7 +26,7 @@
                   </th>
                 </tr>
               </thead class="border-b">
-              <tbody>
+              <tbody class="">
                 @foreach ($projets as $projet)
                 <tr class="bg-white border-b">
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$projet->id}}</td>
@@ -47,9 +47,17 @@
               </tbody>
             </table>
           </div>
+          
         </div>
+        
       </div>
+      
     </div>
+    <div class=" mx-20 mt-4 ">
+      {{ $projets->links() }}
+  </div>
+    
+    
 
 @endsection
 
